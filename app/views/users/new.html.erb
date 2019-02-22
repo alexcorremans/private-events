@@ -1,0 +1,22 @@
+<h1>Sign up</h1>
+<% if @user.errors.any? %>
+  <div>
+    <h2 style="color: red;"><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for @user, url: signup_path do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+  <p><%= f.submit "Sign up" %></p>
+<% end %>
