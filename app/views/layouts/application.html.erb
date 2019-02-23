@@ -12,7 +12,7 @@
   <body>
     <header><%= render 'layouts/header' %></header>
     <% flash.each do |message_type, message| %>
-      <%= content_tag :h2, message, style: 'color:green' %>
+      <%= content_tag :h2, message, class: message_type %>
     <% end %>
     <%= yield %>
     <footer><%= render 'layouts/footer' %></footer>
