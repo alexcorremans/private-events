@@ -1,7 +1,8 @@
 <% if logged_in? %>
-  <h1>My Events</h1>
-  <%= render @current_user.created_events %>
   <p><%= link_to "Create event", new_event_path %></p>
+  <p><%= link_to "Events I created", events_path %></p>
+  <p><%= link_to "Upcoming Events", upcoming_path %></p>
+  <p><%= link_to "Previous Events", previous_path %></p>
 <% else %>
   <h1>Private Events - a Rails application</h1>
   <p>Welcome to my app!</p>

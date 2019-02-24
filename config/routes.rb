@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  get '/upcoming', to: 'events#upcoming'
+  get '/previous', to: 'events#past'
   resources :users, only: [:new, :create, :show]
   resources :events, except: [:edit, :update, :destroy]
 end

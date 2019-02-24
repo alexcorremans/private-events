@@ -10,4 +10,12 @@ class User < ApplicationRecord
                                             join_table: "attended_events_attendees",
                                             foreign_key: "attendee_id",
                                             association_foreign_key: "attended_event_id"
+
+  def upcoming_events
+    attended_events.upcoming
+  end
+
+  def past_events
+    attended_events.past
+  end
 end

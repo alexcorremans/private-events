@@ -10,4 +10,14 @@ class Event < ApplicationRecord
   validates :location, presence: true, length: { minimum: 2, maximum: 50 }
   validates :description, presence: true, length: { minimum: 2, maximum: 1000 }
 
+  scope :upcoming, -> { where("date > ?", Time.now) }
+  scope :past, -> { where("date < ?", Time.now) }
+
+  def past?
+    Event.past.exists?(self.id)
+  end
+
+  def upcoming?
+    Event.upcoming.exists?(self.id)
+  end
 end

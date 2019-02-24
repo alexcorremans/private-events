@@ -1,11 +1,17 @@
 <h2><%= event.name %></h2>
 <table>
   <tr>
-    <td><strong>Date</strong></td>
-    <td><%= event.date %></td>
+    <td><strong>When</strong></td>
+    <td>
+      <% if event.upcoming? %>
+        <%= distance_of_time_in_words_to_now(event.date) %> from now
+      <% else %>
+        <%= time_ago_in_words(event.date) %> ago
+      <% end %>
+    </td>
   </tr>
   <tr>
-    <td><strong>Location</strong></td>
+    <td><strong>Where</strong></td>
     <td><%= event.location %></td>
   </tr>
   <tr>
