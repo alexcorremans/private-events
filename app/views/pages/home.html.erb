@@ -1,3 +1,8 @@
-<h1>Private Events - a Rails application</h1>
-<p>Welcome to my app!</p>
-<p><%= link_to "Sign up here", signup_path %></p>
+<% if logged_in? %>
+  <h1>My Events</h1>
+  <%= render @current_user.created_events %>
+<% else %>
+  <h1>Private Events - a Rails application</h1>
+  <p>Welcome to my app!</p>
+  <p><%= link_to "Sign up here", signup_path %></p>
+<% end %>
