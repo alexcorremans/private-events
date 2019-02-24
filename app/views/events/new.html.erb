@@ -1,0 +1,27 @@
+<h1>Create a new event</h1>
+<%= render 'shared/error_messages', object: @event %>
+<%= form_for @event do |f| %>
+  <table>
+    <tr>
+      <td><%= f.label :name %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :date %></td>
+      <td><%= f.datetime_field :date %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :location %></td>
+      <td><%= f.text_field :location %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :description %></td>
+      <td><%= f.text_area :description %></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= f.submit "Create event" %>
+      </td>
+    </tr>
+  </table>
+<% end %>

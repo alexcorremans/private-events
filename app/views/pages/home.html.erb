@@ -1,6 +1,7 @@
 <% if logged_in? %>
   <h1>My Events</h1>
   <%= render @current_user.created_events %>
+  <p><%= link_to "Create event", new_event_path %></p>
 <% else %>
   <h1>Private Events - a Rails application</h1>
   <p>Welcome to my app!</p>
