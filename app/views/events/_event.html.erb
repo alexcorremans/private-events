@@ -21,7 +21,7 @@
 </table>
 <p>
   <%= link_to "View Event", event %>
-  <% if event.upcoming? %>
+  <% if event.created_by?(@current_user) && event.upcoming? %>
    | <%= link_to "Send Invitation", '#' %>
   <% end %>
 </p>

@@ -5,7 +5,7 @@ class Event < ApplicationRecord
                                       foreign_key: "attended_event_id", 
                                       association_foreign_key: "attendee_id"
   has_many :invitations
-  
+
   validates :name, presence: true, length: { minimum: 2, maximum: 50 }
   validates :date, presence: true
   validates :location, presence: true, length: { minimum: 2, maximum: 50 }
@@ -21,5 +21,9 @@ class Event < ApplicationRecord
 
   def previous?
     Event.past.exists?(self.id)
+  end
+
+  def created_by?(user)
+    creator_id == user.id
   end
 end
