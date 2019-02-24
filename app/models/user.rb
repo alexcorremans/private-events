@@ -10,6 +10,8 @@ class User < ApplicationRecord
                                             join_table: "attended_events_attendees",
                                             foreign_key: "attendee_id",
                                             association_foreign_key: "attended_event_id"
+  has_many :sent_invitations, class_name: "Invitation", foreign_key: "inviter_id"
+  has_many :received_invitations, class_name: "Invitation", foreign_key: "invitee_id"
 
   def upcoming_events
     attended_events.upcoming

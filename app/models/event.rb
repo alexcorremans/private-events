@@ -4,7 +4,8 @@ class Event < ApplicationRecord
                                       join_table: "attended_events_attendees",
                                       foreign_key: "attended_event_id", 
                                       association_foreign_key: "attendee_id"
-
+  has_many :invitations
+  
   validates :name, presence: true, length: { minimum: 2, maximum: 50 }
   validates :date, presence: true
   validates :location, presence: true, length: { minimum: 2, maximum: 50 }
