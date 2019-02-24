@@ -6,4 +6,8 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
                     
   has_many :created_events, class_name: "Event", foreign_key: "creator_id"
+  has_and_belongs_to_many :attended_events, class_name: "Event",
+                                            join_table: "attended_events_attendees",
+                                            foreign_key: "attendee_id",
+                                            association_foreign_key: "attended_event_id"
 end
