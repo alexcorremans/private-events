@@ -1,14 +1,16 @@
 class EventsController < ApplicationController
   def index
-    @events = current_user.created_events
-  end
-
-  def upcoming
-    @events = current_user.upcoming_events
-  end
-
-  def past
-    @events = current_user.past_events
+    case request.original_url
+    when events_url
+      @title = "My Events"
+      @events = current_user.created_events
+    when upcoming_url
+      @title = "Upcoming Events"
+      @events = current_user.upcoming_events
+    when attended_url
+      @title = "Past Events"
+      @events = current_user.past_events
+    end
   end
 
   def show
