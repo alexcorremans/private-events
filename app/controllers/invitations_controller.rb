@@ -3,6 +3,7 @@ class InvitationsController < ApplicationController
   end
   
   def new
+    @event_id = params[:id]
     @invitation = Invitation.new
     @events_options = upcoming_events_options
     @invitees_options = invitees_options

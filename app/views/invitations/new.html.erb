@@ -4,11 +4,17 @@
   <table>
     <tr>
       <td><%= f.label :event %></td>
-      <td><%= f.select :event_id, @events_options, prompt: "Select Event" %></td>
+      <td>
+        <% if @event_id.nil? %>
+          <%= f.select :event_id, options_for_select(@events_options), prompt: "Select Event" %>
+        <% else %>
+          <%= f.select :event_id, options_for_select(@events_options, @event_id), prompt: "Select Event" %>
+        <% end %>
+      </td>
     </tr>
     <tr>
       <td><%= f.label :invitee, "Who do you want to invite?" %></td>
-      <td><%= f.select :invitee_id, @invitees_options, prompt: "Select User" %></td>
+      <td><%= f.select :invitee_id, options_for_select(@invitees_options), prompt: "Select User" %></td>
     </tr>
     <tr>
       <td colspan="2">
