@@ -6,10 +6,10 @@ class Invitation < ApplicationRecord
   validates_presence_of :invitee
   validate :not_yet_invited
 
-  scope :pending, -> { where(accepted: "pending") }
+  scope :pending, -> { where(accepted: false) }
 
   def pending?
-    Invitation.pending.exists?(self.id)
+    !accepted?
   end
 
   private

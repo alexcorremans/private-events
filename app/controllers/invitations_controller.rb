@@ -37,7 +37,7 @@ class InvitationsController < ApplicationController
 
   def update
     invitation = Invitation.find(params[:id])
-    invitation.update_attribute(:accepted, "yes")
+    invitation.update_attribute(:accepted, true)
     invitation.invitee.add_event(invitation.event)
     flash[:success] = "Invitation accepted!"
     redirect_to invitation.event
