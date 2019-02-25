@@ -24,3 +24,8 @@
   <% end %>
 </ul>
 </p>
+<p>
+  <% if @event.created_by?(@current_user) && @event.upcoming? %>
+    <%= link_to "Send Invitations", new_invitation_path(id: @event.id) %>
+  <% end %>
+</p>

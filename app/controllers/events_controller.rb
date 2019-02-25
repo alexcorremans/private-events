@@ -26,7 +26,7 @@ class EventsController < ApplicationController
     if @event.save
       @event.attendees << current_user # users attend the events they created
       flash[:success] = "Event created successfully."
-      redirect_to root_url
+      redirect_to @event
     else
       render :new
     end

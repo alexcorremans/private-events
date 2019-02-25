@@ -14,8 +14,8 @@ class InvitationsController < ApplicationController
   def create
     @invitation = current_user.sent_invitations.build(invitation_params)
     if @invitation.save
-      invitee = User.find(params[:invitation][:invitee_id])
-      event = Event.find(params[:invitation][:event_id])
+      invitee = @invitation.invitee
+      event = @invitation.event
       flash[:success] = "Invitation for #{event.name} sent to #{invitee.name}!"
       redirect_to new_invitation_path
     else
@@ -40,7 +40,7 @@ class InvitationsController < ApplicationController
     invitation.update_attribute(:accepted, "yes")
     invitation.invitee.add_event(invitation.event)
     flash[:success] = "Invitation accepted!"
-    redirect_to pending_path
+    redirect_to invitation.event
   end
 
   def destroy
