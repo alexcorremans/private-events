@@ -2,7 +2,7 @@
 <% if logged_in? %>
   <h2>Calendar</h2>
   <p><%= link_to "Upcoming Events", upcoming_path %></p>
-  <p><%= link_to "Pending Invitations", '#' %></p>
+  <p><%= link_to "Pending Invitations", pending_path %></p>
   <p><%= link_to "Previously Attended Events", attended_path %></p>
   <h2>My Events</h2>
   <p><%= link_to "Create event", new_event_path %></p>

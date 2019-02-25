@@ -20,4 +20,8 @@ class User < ApplicationRecord
   def past_events
     attended_events.past
   end
+
+  def add_event(event)
+    attended_events << event
+  end
 end

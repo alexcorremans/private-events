@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/upcoming', to: 'events#index'
   get '/attended', to: 'events#index'
+  get '/pending', to: 'invitations#index'
   resources :users, only: [:new, :create, :show]
   resources :events, except: [:edit, :update, :destroy]
-  resources :invitations, only: [:index, :new, :create]
+  resources :invitations, except: [:show]
 end
