@@ -1,0 +1,19 @@
+<h1>Send Invitation</h1>
+<%= render 'shared/error_messages', object: @invitation %>
+<%= form_for @invitation do |f| %>
+  <table>
+    <tr>
+      <td><%= f.label :event %></td>
+      <td><%= f.select :event_id, @events_options %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :invitee, "Who do you want to invite?" %></td>
+      <td><%= f.select :invitee_id, @invitees_options %></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= f.submit "Send invitation" %>
+      </td>
+    </tr>
+  </table>
+<% end %>

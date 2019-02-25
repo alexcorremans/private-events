@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get '/attended', to: 'events#index'
   resources :users, only: [:new, :create, :show]
   resources :events, except: [:edit, :update, :destroy]
+  resources :invitations, only: [:index, :new, :create]
 end
