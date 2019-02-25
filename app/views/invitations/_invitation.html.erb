@@ -1,4 +1,5 @@
 <h2><%= invitation.event.name %></h2>
+<p><%= distance_of_time_in_words_to_now(invitation.event.date) %> from now</p>
 <p>Invited by <%= invitation.inviter.name %></p>
 <p><%= link_to "View invitation", edit_invitation_path(invitation) %>
 <hr>
