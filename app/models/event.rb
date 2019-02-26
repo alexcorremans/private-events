@@ -12,8 +12,8 @@ class Event < ApplicationRecord
   validates :description, presence: true, length: { minimum: 2, maximum: 1000 }
 
   default_scope { order(date: :asc) }
-  scope :upcoming, -> { where("date > ?", Time.now) }
-  scope :past, -> { where("date < ?", Time.now) }
+  scope :upcoming, -> { where("date > ?", Time.current) }
+  scope :past, -> { where("date < ?", Time.current) }
 
   def upcoming?
     Event.upcoming.exists?(self.id)

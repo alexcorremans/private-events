@@ -1,11 +1,11 @@
 <h2><%= @event.name %></h2>
 <table>
   <tr>
-    <td><strong>Date</strong></td>
-    <td><%= @event.date %></td>
+    <td><strong>When</strong></td>
+    <td><%= @event.date.localtime %></td>
   </tr>
   <tr>
-    <td><strong>Location</strong></td>
+    <td><strong>Where</strong></td>
     <td><%= @event.location %></td>
   </tr>
   <tr>
