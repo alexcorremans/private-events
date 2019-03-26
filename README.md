@@ -13,4 +13,4 @@ It has the following features:
 - View upcoming events
 - View previously attended events
 
-I made this app using Ruby on Rails as part of the Odin Project's [curriculum](https://www.theodinproject.com/lessons/associations#project-2-private-events).
+I made this app using Ruby on Rails as part of the Odin Project's [curriculum](https://www.theodinproject.com/lessons/associations#project-2-private-events). As with other applications I've made recently, my focus was on the backend/framework side of things so there is no styling yet. 
