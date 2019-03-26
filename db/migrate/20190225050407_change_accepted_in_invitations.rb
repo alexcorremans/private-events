@@ -1,6 +1,6 @@
 class ChangeAcceptedInInvitations < ActiveRecord::Migration[5.2]
   def up
-    change_column :invitations, :accepted, :boolean, default: false
+    change_column :invitations, :accepted, :boolean, default: false, using: 'accepted::boolean'
   end
 
   def down
