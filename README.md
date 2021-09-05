@@ -1,6 +1,6 @@
 # Private Events
 
-This is a 'proof of concept' web application that allows users to create private events and invite other users. You can try it out [here](https://sheltered-stream-45982.herokuapp.com/).
+This is a 'proof of concept' web application that allows users to create private events and invite other users. 
 
 It has the following features:
 
